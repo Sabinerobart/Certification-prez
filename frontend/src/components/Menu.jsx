@@ -38,7 +38,7 @@ export default class Menu extends React.Component {
             <User color="#222" />
           </Link>
         </div>
-        <button onClick={() => this.toggleNavbar()}>
+        <button onClick={() => this.toggleNavbar()} className="burger-btn">
           <div className="line" />
           <div className="line" />
           <div className="line" />
@@ -47,12 +47,22 @@ export default class Menu extends React.Component {
         <Collapse isOpen={!this.state.collapsed} navbar>
           <Nav navbar vertical>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <Link to="/formation">Training</Link>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
+              <Link to="/stage">Internship</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/intro">Introduction</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/contenu">Content</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/conclusion">Conclusion</Link>
+            </NavItem>
+            <NavItem>
+              <Link to="/admin">Admin</Link>
             </NavItem>
           </Nav>
         </Collapse>
