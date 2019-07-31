@@ -8,13 +8,57 @@ import {
   CardSubtitle,
   Form,
   FormGroup,
-  Label,
   Input,
   Button
 } from "reactstrap";
+import axios from "axios";
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nickname: "",
+      password: "",
+      profile: "",
+      title: "",
+      content: ""
+    };
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let { nickname, password } = this.state;
+    const { history } = this.props;
+    axios
+      .post(`http://localhost:5050/login`, {
+        nickname,
+        password
+      })
+      .then(({ data }) => {
+        this.setState({
+          nickname: data.nickname,
+          password: data.password
+        });
+        localStorage.setItem("user", JSON.stringify(data));
+        history.push("/");
+      });
+  }
+
+  componentDidMount() {
+    if ("user" in localStorage) {
+      const user = JSON.parse(localStorage.getItem("user"));
+      this.setState({ profile: user });
+    }
+  }
+
   render() {
+    const user = this.state.profile;
     return (
       <div className="login-page">
         <Card>
@@ -40,10 +84,10 @@ export default class Login extends Component {
                   name="nickname"
                   id="nickname"
                   placeholder="Pseudo"
-                  // value={this.state.nickname}
-                  // onChange={e => {
-                  //   this.handleChange(e);
-                  // }}
+                  value={this.state.nickname}
+                  onChange={e => {
+                    this.handleChange(e);
+                  }}
                 />
               </FormGroup>
               <FormGroup>
@@ -52,10 +96,10 @@ export default class Login extends Component {
                   name="password"
                   id="password"
                   placeholder="Password"
-                  // value={this.state.password}
-                  // onChange={e => {
-                  //   this.handleChange(e);
-                  // }}
+                  value={this.state.password}
+                  onChange={e => {
+                    this.handleChange(e);
+                  }}
                 />
               </FormGroup>
               <Button type="submit" className="col-4 mx-auto">
