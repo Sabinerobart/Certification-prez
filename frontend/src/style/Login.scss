@@ -17,6 +17,37 @@
       background: $main-color;
       text-align: center;
       border-bottom: none;
+      img {
+        height: 3rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
+    .form-control {
+      border: {
+        top: none;
+        left: none;
+        right: none;
+        bottom: 2px solid $main-color;
+        radius: 0;
+      }
+      &::placeholder {
+        color: $sec-color;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    button {
+      margin-top: 0.5rem;
+      border-radius: 0;
+      border: none;
+      background: $main-color;
+      color: $bl;
+      &:hover {
+        box-shadow: $btn-shadow;
+      }
     }
   }
 }
