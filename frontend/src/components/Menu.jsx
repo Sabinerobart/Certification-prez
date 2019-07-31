@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from "reactstrap";
+import { Collapse, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../style/index.scss";
 import { User } from "react-feather";
@@ -47,22 +40,36 @@ export default class Menu extends React.Component {
         <Collapse isOpen={!this.state.collapsed} navbar>
           <Nav navbar vertical>
             <NavItem>
-              <Link to="/formation">Training</Link>
+              <Link to="/formation" onClick={() => this.toggleNavbar()}>
+                1 | Training
+              </Link>
             </NavItem>
             <NavItem>
-              <Link to="/stage">Internship</Link>
+              <Link to="/stage" onClick={() => this.toggleNavbar()}>
+                2 | Internship
+              </Link>
             </NavItem>
             <NavItem>
-              <Link to="/intro">Introduction</Link>
+              <Link to="/intro" onClick={() => this.toggleNavbar()}>
+                3 | Introduction
+              </Link>
             </NavItem>
             <NavItem>
-              <Link to="/contenu">Content</Link>
+              <Link to="/contenu" onClick={() => this.toggleNavbar()}>
+                4 | Content
+              </Link>
             </NavItem>
             <NavItem>
-              <Link to="/conclusion">Conclusion</Link>
+              <Link to="/conclusion" onClick={() => this.toggleNavbar()}>
+                5 | Conclusion
+              </Link>
             </NavItem>
-            <NavItem>
-              <Link to="/admin">Admin</Link>
+            <NavItem
+            // className={is_admin ? "display_none" : null}
+            >
+              <Link to="/admin" onClick={() => this.toggleNavbar()}>
+                Admin
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
