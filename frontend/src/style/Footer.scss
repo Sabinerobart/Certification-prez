@@ -6,6 +6,13 @@ footer {
   left: 0;
   width: 100%;
   background: $sec-color;
-  padding: 0.5rem 5rem;
+  padding: 0.7rem 5rem;
   z-index: 1001;
+  em {
+    font-family: "Zilla", serif;
+  }
+}
+
+.line {
+  margin: 10px;
 }
