@@ -67,7 +67,6 @@ a {
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  text-align: center;
 }
 
 .show ul {
@@ -89,9 +88,19 @@ a {
       height: 50vh;
     }
   }
+  li {
+    width: 50%;
+    margin: 0.3rem auto;
+    &:last-of-type {
+      margin: 2rem auto;
+    }
+  }
   li a {
     color: rgba($bl, 0.7);
     text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
     &:hover {
       color: $bl;
     }
