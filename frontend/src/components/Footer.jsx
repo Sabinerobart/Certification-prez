@@ -1,10 +1,16 @@
 import React from "react";
 import "../style/Footer.scss";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div>
-      Sabine Robart - Titre professionnel Développeur web & web mobile - 2020
-    </div>
+    <em className="d-flex">
+      Sabine Robart
+      <div className="line" />
+      Titre professionnel Développeur web & web mobile
+      <div className="line" />
+      2020
+    </em>
   );
-}
+};
+
+export default Footer;
