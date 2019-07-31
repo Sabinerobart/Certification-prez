@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import "../style/Login.scss";
 import {
   Card,
-  CardText,
   CardBody,
   CardHeader,
-  CardLink,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button
 } from "reactstrap";
 
 export default class Login extends Component {
@@ -17,19 +20,48 @@ export default class Login extends Component {
         <Card>
           <CardHeader>
             <CardTitle>
-              <h1>You're admin ?</h1>
+              <h2>You're admin ?</h2>
             </CardTitle>
             <CardSubtitle>
-              <h2>Please, sign in</h2>
+              <h4>Please, sign in</h4>
             </CardSubtitle>
+            <img src="/img/arrow-down.png" alt="arrow down" />
           </CardHeader>
-          <CardBody>
-            <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </CardText>
-            <CardLink href="#">Card Link</CardLink>
-            <CardLink href="#">Another Link</CardLink>
+          <CardBody className="mt-5">
+            <Form
+              onSubmit={e => {
+                this.handleSubmit(e);
+              }}
+              className="d-flex flex-column"
+            >
+              <FormGroup>
+                <Input
+                  type="text"
+                  name="nickname"
+                  id="nickname"
+                  placeholder="Pseudo"
+                  // value={this.state.nickname}
+                  // onChange={e => {
+                  //   this.handleChange(e);
+                  // }}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Input
+                  type="text"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  // value={this.state.password}
+                  // onChange={e => {
+                  //   this.handleChange(e);
+                  // }}
+                />
+              </FormGroup>
+              <Button type="submit" className="col-4 mx-auto">
+                Submit
+              </Button>
+            </Form>
           </CardBody>
         </Card>
       </div>
