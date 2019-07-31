@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+// COLORS
+
+$wh: #f7f7f7;
+
+// HELPERS
+
+.wip {
+  border: 1px solid red;
+}
