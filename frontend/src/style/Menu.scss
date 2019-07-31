@@ -1,0 +1,48 @@
+@import "./index.scss";
+
+a {
+  margin: 0.3rem 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  min-height: 100vh;
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: $sec-color;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  box-shadow: $light-shadow;
+  .navbar-toggler {
+    border: none;
+  }
+}
+
+.line {
+  width: 2rem;
+  height: 0.2rem;
+  background: $main-color;
+  margin: 0.5rem 0;
+  transition: $transition;
+  &:first-of-type {
+    width: 1.5rem;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  &:hover {
+    .line:first-of-type {
+      width: 2rem;
+    }
+    .line {
+      margin: 0.3rem;
+    }
+  }
+}
