@@ -15,9 +15,16 @@ code {
 // COLORS
 
 $wh: #f7f7f7;
+$bl: #222;
+$main-color: #fdff88;
+$sec-color: #d0d0d0;
 
 // HELPERS
 
 .wip {
   border: 1px solid red;
 }
+
+$transition: 0.2s;
+$dark-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
+$light-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
