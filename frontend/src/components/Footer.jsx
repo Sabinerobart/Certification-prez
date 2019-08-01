@@ -3,13 +3,13 @@ import "../style/Footer.scss";
 
 const Footer = () => {
   return (
-    <em className="d-flex">
+    <div className="footer d-flex pt-2 px-5">
       Sabine Robart
       <div className="line" />
       Titre professionnel Développeur web & web mobile
       <div className="line" />
       2020
-    </em>
+    </div>
   );
 };
 
