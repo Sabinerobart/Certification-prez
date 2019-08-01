@@ -1,5 +1,5 @@
 import React from "react";
-import { Collapse, Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
+import { Collapse, Navbar, Nav, NavItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../style/index.scss";
 import { User } from "react-feather";
@@ -23,9 +23,7 @@ export default class Menu extends React.Component {
       <Navbar light className="p-0">
         <div className="d-flex flex-column justify-content-center">
           <Link to="/">
-            <NavbarBrand>
-              <img src="/img/laptop-blueBG.png" alt="logo" width="45" />
-            </NavbarBrand>
+            <img src="/img/laptop-blueBG.png" alt="logo" width="45" />
           </Link>
           <Link to="/login">
             <User color="#222" />

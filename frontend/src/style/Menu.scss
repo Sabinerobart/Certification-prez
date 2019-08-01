@@ -1,7 +1,7 @@
 @import "./index.scss";
 
 a {
-  margin: 0.3rem 0 !important;
+  margin: 0.5rem 0 !important;
   display: flex;
   justify-content: center;
 }
@@ -17,7 +17,7 @@ a {
   top: 0;
   left: 0;
   z-index: 1000;
-  .navbar-brand:hover img {
+  a:first-of-type:hover img {
     transform: translateY(-1px);
   }
 }
