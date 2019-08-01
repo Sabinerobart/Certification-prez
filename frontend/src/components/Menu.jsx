@@ -24,7 +24,7 @@ export default class Menu extends React.Component {
         <div className="d-flex flex-column justify-content-center">
           <Link to="/">
             <NavbarBrand>
-              <img src="/img/laptop-yellowBG.png" alt="logo" width="40" />
+              <img src="/img/laptop-blueBG.png" alt="logo" width="45" />
             </NavbarBrand>
           </Link>
           <Link to="/login">
@@ -36,7 +36,6 @@ export default class Menu extends React.Component {
           <div className="line" />
           <div className="line" />
         </button>
-        <div />
         <Collapse isOpen={!this.state.collapsed} navbar>
           <Nav navbar vertical>
             <NavItem>
