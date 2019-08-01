@@ -27,6 +27,30 @@ app.post("/login", (req, res) => {
   );
 });
 
+// Slides : Training
+
+app.get("/:category", (req, res) => {
+  let category = req.params.category;
+  if (category === "formation") {
+    category = "training";
+  } else if (category === "stage") {
+    category = "internship";
+  }
+  db.query(
+    `SELECT title, description, bp_one, bp_two, bp_three, bp_four FROM slide WHERE category="${category}"`,
+    (err, rows) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("error when getting user route");
+      }
+      if (!rows) {
+        return res.status(404).send("No user found");
+      }
+      res.status(200).send(rows[0]);
+    }
+  );
+});
+
 app.listen(portNumber, () => {
   console.log(`API root available at: http://localhost:${portNumber}/`);
 });
