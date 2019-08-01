@@ -42,6 +42,12 @@ $dark-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
 $light-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
 $btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .separation {
   width: 5rem;
   height: 5px;
