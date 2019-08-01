@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.post("/login", (req, res) => {
   const user = req.body.nickname;
   db.query(
-    `SELECT id, nickname, fullName, is_admin FROM user WHERE nickname="${user}"`,
+    `SELECT id, nickname, fullName, month, year, is_admin FROM user WHERE nickname="${user}"`,
     (err, rows) => {
       if (err) {
         console.log(err);
