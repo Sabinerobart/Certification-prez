@@ -16,21 +16,20 @@ code {
 
 $wh: #f7f7f7;
 $bl: #222;
-$main-color: #fdff88;
-$sec-color: #d0d0d0;
+$main-color: #0082c3;
+$sec-color: #b3b3b3;
 
 // ------------------------------ FONTS
 
 @font-face {
-  font-family: "Zilla";
-  src: url("/fonts/ZillaSlab-Regular.ttf");
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-Regular.ttf");
 }
 
 @font-face {
-  font-family: "Quicksand";
-  src: url("/fonts/Quicksand-Regular.ttf");
+  font-family: "RalewayBold";
+  src: url("/fonts/Raleway-Bold.ttf");
 }
-
 // ------------------------------ HELPERS
 
 .wip {
@@ -39,9 +38,5 @@ $sec-color: #d0d0d0;
 
 $transition: 0.2s;
 $dark-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
-$light-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
-$btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
-
-* {
-  font-family: "Quicksand", sans-serif;
-}
+$light-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+$btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
