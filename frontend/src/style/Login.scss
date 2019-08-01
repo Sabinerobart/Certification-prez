@@ -15,6 +15,7 @@
     box-shadow: $light-shadow;
     width: 350px;
     color: $wh;
+    animation: 1s slide-up;
     .card-header {
       background: $main-color;
       text-align: center;
@@ -60,6 +61,8 @@
   }
 }
 
+// EFFECTS
+
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -86,4 +89,15 @@
 .hvr-underline-from-center:focus-within:before {
   left: 0;
   right: 0;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
