@@ -18,10 +18,7 @@ export default class Login extends Component {
     super(props);
     this.state = {
       nickname: "",
-      password: "",
-      profile: "",
-      title: "",
-      content: ""
+      password: ""
     };
   }
 
@@ -50,15 +47,7 @@ export default class Login extends Component {
       });
   }
 
-  componentDidMount() {
-    if ("user" in localStorage) {
-      const user = JSON.parse(localStorage.getItem("user"));
-      this.setState({ profile: user });
-    }
-  }
-
   render() {
-    const user = this.state.profile;
     return (
       <div className="login-page">
         <Card>
@@ -71,14 +60,14 @@ export default class Login extends Component {
             </CardSubtitle>
             <img src="/img/arrow-down.png" alt="arrow down" />
           </CardHeader>
-          <CardBody className="mt-5">
+          <CardBody className="mt-4">
             <Form
               onSubmit={e => {
                 this.handleSubmit(e);
               }}
               className="d-flex flex-column"
             >
-              <FormGroup>
+              <FormGroup className="hvr-underline-from-center">
                 <Input
                   type="text"
                   name="nickname"
@@ -90,7 +79,7 @@ export default class Login extends Component {
                   }}
                 />
               </FormGroup>
-              <FormGroup>
+              <FormGroup className="hvr-underline-from-center">
                 <Input
                   type="text"
                   name="password"

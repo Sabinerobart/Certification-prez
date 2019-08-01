@@ -2,26 +2,30 @@
 
 .login-page {
   height: 100vh;
-  background-image: url("/img/eons.jpg");
+  background: $main-color url("/img/profile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "RalewayBold", sans-serif;
   .card {
     border: none;
     border-radius: 0;
-    box-shadow: $dark-shadow;
-    width: 400px;
+    box-shadow: $light-shadow;
+    width: 350px;
+    color: $wh;
     .card-header {
       background: $main-color;
       text-align: center;
       border-bottom: none;
+      border-radius: 0;
       img {
         height: 3rem;
         position: absolute;
         left: 50%;
         transform: translate(-50%);
+        transition: $transition;
       }
     }
     .form-control {
@@ -29,25 +33,57 @@
         top: none;
         left: none;
         right: none;
-        bottom: 2px solid $main-color;
+        bottom: 3px solid rgba($main-color, 0.5);
         radius: 0;
       }
+      margin: 0.5rem 0;
       &::placeholder {
         color: $sec-color;
+        font-family: "Raleway", sans-serif;
       }
       &:focus {
         box-shadow: none;
       }
     }
     button {
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       border-radius: 0;
       border: none;
       background: $main-color;
-      color: $bl;
       &:hover {
         box-shadow: $btn-shadow;
       }
     }
+    &:hover img {
+      height: 3.5rem;
+    }
   }
+}
+
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 7px;
+  background: $main-color;
+  height: 4px;
+  transition-property: left, right;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before,
+.hvr-underline-from-center:focus-within:before {
+  left: 0;
+  right: 0;
 }
