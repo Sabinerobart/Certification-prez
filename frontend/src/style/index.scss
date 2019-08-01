@@ -30,6 +30,7 @@ $sec-color: #b3b3b3;
   font-family: "RalewayBold";
   src: url("/fonts/Raleway-Bold.ttf");
 }
+
 // ------------------------------ HELPERS
 
 .wip {
@@ -40,3 +41,10 @@ $transition: 0.2s;
 $dark-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
 $light-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
 $btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
+
+.separation {
+  width: 5rem;
+  height: 5px;
+  background: $main-color;
+  margin: 2rem 0 2rem 0;
+}
