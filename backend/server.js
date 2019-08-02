@@ -37,7 +37,7 @@ app.get("/:category", (req, res) => {
     category = "internship";
   }
   db.query(
-    `SELECT title, description, bullet_point_one, bullet_point_two, bullet_point_three, bullet_point_four FROM slide WHERE category="${category}"`,
+    `SELECT title, description, bullet_point_one, bullet_point_two, bullet_point_three, bullet_point_four, img FROM slide WHERE category="${category}"`,
     (err, rows) => {
       if (err) {
         console.log(err);
