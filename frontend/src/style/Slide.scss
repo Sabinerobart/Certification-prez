@@ -4,8 +4,14 @@
   min-height: 100vh;
   flex-direction: column;
   font-family: "RalewayBold", sans-serif;
+  form {
+    min-width: 50vw;
+    z-index: 10000;
+    // background: rgba(white, 0.5);
+  }
   input {
     border: 2px solid transparent;
+    background: transparent;
     &:focus {
       border: {
         bottom: 2px solid rgba($main-color, 0.3);
@@ -14,20 +20,88 @@
         right: 2px solid transparent;
         radius: 0;
       }
+      background: rgba($wh, 0.8);
       box-shadow: none;
     }
   }
   .form-control:disabled {
     background: none;
   }
+  .separation {
+    margin: 0.375rem 0.75rem;
+    height: 10px;
+    animation: 0.7s extends;
+    @keyframes extends {
+      form {
+        width: 0rem;
+      }
+      to {
+        width: 7rem;
+      }
+    }
+  }
 }
 
 #title {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 600;
+}
+
+#description {
+  font-size: 1.7rem;
+  font-family: "Raleway", sans-serif;
+  margin: 3vh auto;
+}
+
+#bullet_point_one,
+#bullet_point_two,
+#bullet_point_three,
+#bullet_point_four {
+  font-size: 1.6rem;
+  margin-left: 10rem;
 }
 
 .hide-btn {
   opacity: 0;
   pointer-events: none;
+}
+
+.slide-form-btn {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: none !important;
+  color: $wh;
+  text-transform: uppercase;
+  background: $gradient;
+  transition: $transition;
+  &:hover {
+    box-shadow: $btn-shadow;
+  }
+}
+
+.slide-img {
+  position: absolute;
+  z-index: 1;
+  filter: saturate(0);
+  opacity: 0.15;
+  height: auto;
+  width: 50vw;
+  border: 10px solid $wh;
+  top: 15%;
+  left: 20%;
+  box-shadow: $light-shadow;
+}
+
+.underlay {
+  background: $img-gradient;
+  position: absolute;
+  height: 50vh;
+  width: 50%;
+  top: 35%;
+  left: 40%;
+  z-index: -1;
 }

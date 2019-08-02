@@ -6,7 +6,7 @@ const Homepage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="homepage">
-      <Row className="title shadow-sm flex-column">
+      <Row className="title flex-column">
         <h2>{"user" in localStorage ? `${user.fullName}` : "Prénom Nom"}</h2>
         <div className="separation" />
         <h1>

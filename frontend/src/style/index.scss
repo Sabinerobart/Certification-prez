@@ -19,6 +19,27 @@ $bl: #222;
 $main-color: #0082c3;
 $sec-color: #b3b3b3;
 
+$gradient: linear-gradient(
+  -40deg,
+  fade-out($main-color, 0.1) 10%,
+  fade-out($main-color, 0) 30%,
+  fade-out($main-color, 0.4)
+);
+
+$footer-gradient: linear-gradient(
+  -40deg,
+  fade-out($main-color, 0.4),
+  fade-out($main-color, 0) 30%,
+  fade-out($main-color, 0.1) 10%
+);
+
+$img-gradient: linear-gradient(
+  120deg,
+  fade-out($main-color, 0.95) 10%,
+  fade-out($main-color, 0.8) 30%,
+  fade-out($main-color, 0.6)
+);
+
 // ------------------------------ FONTS
 
 @font-face {
@@ -39,7 +60,7 @@ $sec-color: #b3b3b3;
 
 $transition: 0.2s;
 $dark-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
-$light-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+$light-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.4);
 $btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
 
 .center {
@@ -51,6 +72,6 @@ $btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
 .separation {
   width: 5rem;
   height: 5px;
-  background: $main-color;
+  background: $gradient;
   margin: 2rem 0 2rem 0;
 }
