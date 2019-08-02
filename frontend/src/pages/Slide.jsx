@@ -160,7 +160,6 @@ export default class Slide extends Component {
           ) : null}
           <button
             style={{ border: "1px solid black" }}
-            className="myButton"
             block
             className={user.is_admin ? "slide-form-btn" : "hide-btn"}
             type="submit"
