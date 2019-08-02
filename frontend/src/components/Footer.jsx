@@ -3,7 +3,7 @@ import "../style/Footer.scss";
 
 const Footer = () => {
   return (
-    <div className="footer d-flex pt-2 px-5">
+    <div className="footer d-flex pt-3 px-5">
       Sabine Robart
       <div className="line" />
       Titre professionnel Développeur web & web mobile
