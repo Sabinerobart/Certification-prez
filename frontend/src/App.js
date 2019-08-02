@@ -26,7 +26,7 @@ const App = ({ user }) => {
 
 const mapStateToProps = state => {
   return {
-    user: state.loginReducer.isLoggedIn
+    user: state.loginReducer
   };
 };
 
