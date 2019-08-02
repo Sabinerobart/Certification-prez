@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../style/Slide.scss";
-import { Form, FormGroup, Input } from "reactstrap";
+import { Form, FormGroup, Input, Button } from "reactstrap";
+import { backend } from "../conf.js";
 
 export default class Slide extends Component {
   constructor(props) {
@@ -18,14 +19,14 @@ export default class Slide extends Component {
 
   componentDidMount() {
     const category = this.props.match.params.id;
-    axios.get(`http://localhost:5050/${category}`).then(({ data }) => {
+    axios.get(`${backend}${category}`).then(({ data }) => {
       this.setState({
         title: data.title,
         description: data.description,
-        bullet_point_one: data.bp_one,
-        bullet_point_two: data.bp_two,
-        bullet_point_three: data.bp_three,
-        bullet_point_four: data.bp_four
+        bullet_point_one: data.bullet_point_one,
+        bullet_point_two: data.bullet_point_two,
+        bullet_point_three: data.bullet_point_three,
+        bullet_point_four: data.bullet_point_four
       });
     });
   }
@@ -40,24 +41,24 @@ export default class Slide extends Component {
     });
   }
 
-  // handleSubmit(event) {
-  //   const currentUser = this.state.id;
-  //   event.preventDefault();
-  //   axios
-  //     .put(`${backend}/modification/${currentUser}`, {
-  //       nickname: this.state.nickname,
-  //       location: this.state.location,
-  //       description: this.state.description
-  //     })
-  //     .then(() => {
-  //       this.props.history.push(`/profil/${currentUser}`);
-  //     })
-  //     .catch(err => {
-  //       console.log(`Nope! ${err}`);
-  //     });
-  // }
+  handleSubmit(event) {
+    event.preventDefault();
+    const category = this.props.match.params.id;
+    axios
+      .put(`${backend}${category}`, {
+        title: this.state.title,
+        description: this.state.description,
+        bullet_point_one: this.state.bullet_point_one,
+        bullet_point_two: this.state.bullet_point_two,
+        bullet_point_three: this.state.bullet_point_three,
+        bullet_point_four: this.state.bullet_point_four
+      })
+      .catch(err => {
+        console.log(`Nope! ${err}`);
+      });
+  }
 
-  // validateFor(){
+  // validateForm(){
 
   // }
 
@@ -139,6 +140,16 @@ export default class Slide extends Component {
               />
             </FormGroup>
           ) : null}
+          <Button
+            style={{ border: "1px solid black" }}
+            className="myButton"
+            block
+            // disabled={e => !this.validateForm(e)}
+            type="submit"
+            tabIndex="4"
+          >
+            Valider
+          </Button>
         </Form>
       </div>
     );
