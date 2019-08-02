@@ -31,10 +31,6 @@ export default class Slide extends Component {
     });
   }
 
-  // componentDidUpdate() {
-  //   voir push history /{:id}, peut etre history.push jsais pas
-  // }
-
   handleChange(event) {
     this.setState({
       [event.target.id]: event.target.value
