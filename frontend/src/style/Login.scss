@@ -21,11 +21,19 @@
       text-align: center;
       border-bottom: none;
       border-radius: 0;
+      padding: 1.5rem;
+      h2 {
+        font-size: 2rem;
+      }
+      h4 {
+        font-size: 1.7rem;
+      }
       img {
         height: 3rem;
         position: absolute;
         left: 50%;
-        transform: translate(-50%);
+        top: 30%;
+        transform: translate(-50%, 0);
         transition: $transition;
       }
     }

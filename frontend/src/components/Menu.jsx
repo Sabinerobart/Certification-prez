@@ -23,7 +23,12 @@ export default class Menu extends React.Component {
       <Navbar light className="p-0">
         <div className="d-flex flex-column justify-content-center">
           <Link to="/">
-            <img src="/img/laptop-blueBG.png" alt="logo" width="45" />
+            <img
+              src="/img/laptop-blueBG.png"
+              alt="logo"
+              width="45"
+              height="45"
+            />
           </Link>
           <Link to="/login">
             <User color="#222" />

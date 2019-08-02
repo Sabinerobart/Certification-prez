@@ -4,7 +4,6 @@ import { Row } from "reactstrap";
 
 const Homepage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
   return (
     <div className="homepage">
       <Row className="title shadow-sm flex-column">

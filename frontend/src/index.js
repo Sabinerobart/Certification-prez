@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import { Router } from "react-router-dom";
+import "./style/reset.scss";
 
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();

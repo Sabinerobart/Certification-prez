@@ -1,0 +1,33 @@
+@import "./index.scss";
+
+.slide-page {
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "RalewayBold", sans-serif;
+  input {
+    border: 2px solid transparent;
+    &:focus {
+      border: {
+        bottom: 2px solid rgba($main-color, 0.3);
+        top: 2px solid transparent;
+        left: 2px solid transparent;
+        right: 2px solid transparent;
+        radius: 0;
+      }
+      box-shadow: none;
+    }
+  }
+  .form-control:disabled {
+    background: none;
+  }
+}
+
+#title {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.hide-btn {
+  opacity: 0;
+  pointer-events: none;
+}
