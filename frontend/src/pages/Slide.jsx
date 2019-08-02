@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../style/Slide.scss";
-import { Form, FormGroup, Input, Button } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import { backend } from "../conf.js";
 
 export default class Slide extends Component {
@@ -14,7 +14,8 @@ export default class Slide extends Component {
       bullet_point_two: "2nd bullet point",
       bullet_point_three: "2rd bullet point",
       bullet_point_four: null,
-      profile: "stranger"
+      profile: "stranger",
+      img: null
     };
   }
 
@@ -27,7 +28,8 @@ export default class Slide extends Component {
         bullet_point_one: data.bullet_point_one,
         bullet_point_two: data.bullet_point_two,
         bullet_point_three: data.bullet_point_three,
-        bullet_point_four: data.bullet_point_four
+        bullet_point_four: data.bullet_point_four,
+        img: data.img
       });
     });
 
@@ -69,12 +71,17 @@ export default class Slide extends Component {
     let disabled = true;
     return (
       <div className="slide-page center">
+        <img
+          src={this.state.img}
+          alt={`img-${this.props.match.params.id}`}
+          className="slide-img"
+        />
+        <div className="underlay" />
         <Form
           onSubmit={e => {
             this.handleSubmit(e);
           }}
           className="d-flex flex-column"
-          style={{ width: "50vw" }}
         >
           <FormGroup>
             <Input
@@ -88,6 +95,7 @@ export default class Slide extends Component {
               disabled={user.is_admin ? "" : disabled}
             />
           </FormGroup>
+          <div className="separation" />
           <FormGroup>
             <Input
               type="text"
@@ -150,16 +158,16 @@ export default class Slide extends Component {
               />
             </FormGroup>
           ) : null}
-          <Button
+          <button
             style={{ border: "1px solid black" }}
             className="myButton"
             block
-            className={user.is_admin ? "" : "hide-btn"}
+            className={user.is_admin ? "slide-form-btn" : "hide-btn"}
             type="submit"
             tabIndex="4"
           >
-            Valider
-          </Button>
+            Send
+          </button>
         </Form>
       </div>
     );
