@@ -17,9 +17,17 @@
       box-shadow: none;
     }
   }
+  .form-control:disabled {
+    background: none;
+  }
 }
 
 #title {
   font-size: 2.2rem;
   font-weight: 600;
+}
+
+.hide-btn {
+  opacity: 0;
+  pointer-events: none;
 }

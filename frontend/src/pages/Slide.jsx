@@ -13,7 +13,8 @@ export default class Slide extends Component {
       bullet_point_one: "1st bullet point",
       bullet_point_two: "2nd bullet point",
       bullet_point_three: "2rd bullet point",
-      bullet_point_four: null
+      bullet_point_four: null,
+      profile: "stranger"
     };
   }
 
@@ -29,6 +30,11 @@ export default class Slide extends Component {
         bullet_point_four: data.bullet_point_four
       });
     });
+
+    if ("user" in localStorage) {
+      const user = JSON.parse(localStorage.getItem("user"));
+      this.setState({ profile: user });
+    }
   }
 
   handleChange(event) {
@@ -59,6 +65,8 @@ export default class Slide extends Component {
   // }
 
   render() {
+    const user = this.state.profile;
+    let disabled = true;
     return (
       <div className="slide-page center">
         <Form
@@ -77,6 +85,7 @@ export default class Slide extends Component {
               onChange={e => {
                 this.handleChange(e);
               }}
+              disabled={user.is_admin ? "" : disabled}
             />
           </FormGroup>
           <FormGroup>
@@ -88,6 +97,7 @@ export default class Slide extends Component {
               onChange={e => {
                 this.handleChange(e);
               }}
+              disabled={user.is_admin ? "" : disabled}
             />
           </FormGroup>
           <FormGroup>
@@ -99,6 +109,7 @@ export default class Slide extends Component {
               onChange={e => {
                 this.handleChange(e);
               }}
+              disabled={user.is_admin ? "" : disabled}
             />
           </FormGroup>
           <FormGroup>
@@ -110,6 +121,7 @@ export default class Slide extends Component {
               onChange={e => {
                 this.handleChange(e);
               }}
+              disabled={user.is_admin ? "" : disabled}
             />
           </FormGroup>
           <FormGroup>
@@ -121,6 +133,7 @@ export default class Slide extends Component {
               onChange={e => {
                 this.handleChange(e);
               }}
+              disabled={user.is_admin ? "" : disabled}
             />
           </FormGroup>
           {this.state.bullet_point_four !== null ? (
@@ -133,6 +146,7 @@ export default class Slide extends Component {
                 onChange={e => {
                   this.handleChange(e);
                 }}
+                disabled={user.is_admin ? "" : disabled}
               />
             </FormGroup>
           ) : null}
@@ -140,7 +154,7 @@ export default class Slide extends Component {
             style={{ border: "1px solid black" }}
             className="myButton"
             block
-            // disabled={e => !this.validateForm(e)}
+            className={user.is_admin ? "" : "hide-btn"}
             type="submit"
             tabIndex="4"
           >
