@@ -1,13 +1,14 @@
 import React from "react";
 import "./style/Menu.scss";
-import Menu from "./components/Menu";
 import { Route, Switch } from "react-router-dom";
+import Menu from "./components/Menu";
 import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Slide from "./pages/Slide";
+import { connect } from "react-redux";
 
-function App() {
+const App = ({ user }) => {
   return (
     <React.Fragment>
       <Menu />
@@ -21,6 +22,17 @@ function App() {
       </footer>
     </React.Fragment>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.loginReducer
+  };
+};
+
+const withConnect = connect(
+  mapStateToProps,
+  null
+)(App);
+
+export default withConnect;

@@ -1,16 +1,28 @@
 import React from "react";
 import "../style/Footer.scss";
+import { connect } from "react-redux";
 
-const Footer = () => {
+const Footer = user => {
+  const profile = user.user;
   return (
     <div className="footer d-flex pt-3 px-5">
-      Sabine Robart
+      {user ? `${profile && profile.fullName}` : "Sabine Robart"}
       <div className="line" />
-      Titre professionnel Développeur web & web mobile
+      <em>Titre professionnel Développeur web & web mobile</em>
       <div className="line" />
-      2020
+      {user
+        ? `${profile && profile.month} ${profile && profile.year}`
+        : `février 2019`}
     </div>
   );
 };
 
-export default Footer;
+const mapStateToProps = state => {
+  return {
+    user: state.loginReducer.state
+  };
+};
+
+const FooterContainer = connect(mapStateToProps)(Footer);
+
+export default FooterContainer;

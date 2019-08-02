@@ -12,8 +12,10 @@ import {
   Button
 } from "reactstrap";
 import axios from "axios";
+import { loggedInUserActions } from "../redux/actions";
+import { connect } from "react-redux";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,11 +40,8 @@ export default class Login extends Component {
         password
       })
       .then(({ data }) => {
-        this.setState({
-          nickname: data.nickname,
-          password: data.password
-        });
-        localStorage.setItem("user", JSON.stringify(data));
+        const { dispatch } = this.props;
+        dispatch(loggedInUserActions(data));
         history.push("/");
       });
   }
@@ -101,3 +100,13 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.loginReducer
+  };
+};
+
+const LoginContainer = connect(mapStateToProps)(Login);
+
+export default LoginContainer;

@@ -2,9 +2,11 @@ import React from "react";
 import { Collapse, Navbar, Nav, NavItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../style/index.scss";
-import { User } from "react-feather";
+import { User, LogOut } from "react-feather";
+import { connect } from "react-redux";
+import { loggedInUserActions } from "../redux/actions";
 
-export default class Menu extends React.Component {
+class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,16 +20,37 @@ export default class Menu extends React.Component {
     });
   }
 
+  logOut(e) {
+    e.preventDefault();
+    const { dispatch } = this.props;
+    dispatch(loggedInUserActions({}));
+  }
+
   render() {
+    const { user } = this.props;
+    const userLink = (
+      <Link to="/login">
+        <User color="#222" size="30" />
+      </Link>
+    );
+
+    const guestLink = (
+      <LogOut
+        color="#222"
+        size="30"
+        onClick={e => {
+          this.logOut(e);
+        }}
+      />
+    );
+
     return (
       <Navbar light className="p-0">
-        <div className="d-flex flex-column justify-content-center">
+        <div className="d-flex flex-column center">
           <Link to="/">
             <img src="/img/laptop-blueBG.png" alt="logo" className="logo" />
           </Link>
-          <Link to="/login">
-            <User color="#222" size="30" />
-          </Link>
+          {user ? guestLink : userLink}
         </div>
         <button onClick={() => this.toggleNavbar()} className="burger-btn">
           <div className="line" />
@@ -61,9 +84,8 @@ export default class Menu extends React.Component {
                 5 | Conclusion
               </Link>
             </NavItem>
-            <NavItem
-            // className={is_admin ? "display_none" : null}
-            >
+
+            <NavItem className={user && user.is_admin ? null : "hide"}>
               <Link to="/admin" onClick={() => this.toggleNavbar()}>
                 Admin
               </Link>
@@ -74,3 +96,13 @@ export default class Menu extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.loginReducer.state
+  };
+};
+
+const MenuContainer = connect(mapStateToProps)(Menu);
+
+export default MenuContainer;
