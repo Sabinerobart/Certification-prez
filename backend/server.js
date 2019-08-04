@@ -14,25 +14,6 @@ const passport = require("passport");
 app.use(passport.initialize());
 app.use("/auth", require("./auth"));
 
-// Login
-
-app.post("/login", (req, res) => {
-  const user = req.body.email;
-  db.query(
-    `SELECT id, nickname, fullName, month, year, is_admin FROM user WHERE email="${user}"`,
-    (err, rows) => {
-      if (err) {
-        console.log(err);
-        return res.status(500).send("error when getting user route");
-      }
-      if (!rows) {
-        return res.status(404).send("No user found");
-      }
-      res.status(200).send(rows[0]);
-    }
-  );
-});
-
 // Slides
 
 app.get("/:category", (req, res) => {
