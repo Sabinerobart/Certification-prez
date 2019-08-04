@@ -6,20 +6,19 @@ require("./passport-strategies");
 const { jwtSecret, saltRounds, db } = require("./conf");
 const bcrypt = require("bcrypt");
 
+// Registration
+
 router.post("/users", (req, res) => {
   let user = req.body;
-
   bcrypt.hash(user.password, parseInt(saltRounds), (err, hash) => {
     if (err)
       return res.status(418).json({ status: "Teapot", error: err, hash: hash });
     user.password = hash;
 
     db.query(
-      `INSERT INTO user (nickname, email, password, fullName, month, year) VALUES ('${
+      `INSERT INTO user (nickname, email, password, fullName) VALUES ('${
         user.nickname
-      }', '${user.email}', '${user.password}', '${user.fullName}', '${
-        user.month
-      }', '${user.year}'`,
+      }', '${user.email}', '${user.password}', '${user.fullName}')`,
       (err, rows, fields) => {
         if (err) throw err;
         msg = "Answer recorded!";
@@ -28,6 +27,8 @@ router.post("/users", (req, res) => {
     res.status(200).send(user);
   });
 });
+
+// Login
 
 router.post("/login", (req, res) => {
   passport.authenticate("local", { session: false }, (err, user, info) => {
