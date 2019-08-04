@@ -9,7 +9,7 @@
   position: fixed !important;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 15000;
   a {
     margin: 0.5rem 0.3rem !important;
     display: flex;
@@ -72,7 +72,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-15%, 0);
+  transform: translate(-5%, -10%);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -101,7 +101,7 @@
     width: 50%;
     margin: 0.3rem auto;
     &:last-of-type {
-      margin: 2rem auto;
+      margin: 2rem auto 0 auto;
     }
   }
   li a {
