@@ -104,6 +104,7 @@ class Login extends Component {
             </Form>
           </CardBody>
         </Card>
+        <div className="colored" />
       </div>
     );
   }
