@@ -1,85 +1,114 @@
 @import "./index.scss";
 
 .slide-page {
-  min-height: 100vh;
   flex-direction: column;
   font-family: "RalewayBold", sans-serif;
   form {
-    min-width: 50vw;
-    z-index: 10000;
-    // background: rgba(white, 0.5);
-  }
-  input {
-    border: 2px solid transparent;
-    background: transparent;
-    &:focus {
+    width: 82vw;
+    z-index: 1000;
+    .slide-title {
+      margin: 10vh 0;
+      input {
+        font-size: calc(1rem + 1vw);
+        text-align: right;
+      }
+      img {
+        height: 5rem;
+      }
+      .page_title {
+        font-family: "Raleway", sans-serif;
+      }
+    }
+    .form-group textarea,
+    .form-group textarea:focus {
+      padding: 5vh 2vh;
+      height: 250px;
+      background: $wh;
+      box-shadow: $btn-shadow;
       border: {
-        bottom: 2px solid rgba($main-color, 0.3);
-        top: 2px solid transparent;
-        left: 2px solid transparent;
-        right: 2px solid transparent;
+        top: 5px solid $bl;
+        left: 0;
+        right: 0;
+        bottom: 0;
         radius: 0;
       }
-      background: rgba($wh, 0.8);
-      box-shadow: none;
     }
-  }
-  .form-control:disabled {
-    background: none;
-  }
-  .separation {
-    margin: 0.375rem 0.75rem;
-    height: 10px;
-    animation: 0.7s extends;
-    @keyframes extends {
-      form {
-        width: 0rem;
-      }
-      to {
-        width: 7rem;
+    input {
+      border: 1px solid transparent;
+      background: transparent;
+      &:focus {
+        background: rgba($wh, 0.8);
+        box-shadow: none;
+        border: 1px solid rgba($bl, 0.3);
       }
     }
-  }
-}
+    .form-control:disabled {
+      background: none;
+    }
+    .separation {
+      margin: 0.375rem 0.75rem;
+      height: 10px;
+    }
+    #title {
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
 
-#title {
-  font-size: 2.4rem;
-  font-weight: 600;
-}
+    #description {
+      font-size: 1.7rem;
+      font-family: "Raleway", sans-serif;
+      margin: 3vh auto;
+    }
+    #bullet_point_one,
+    #bullet_point_two,
+    #bullet_point_three,
+    #bullet_point_four {
+      font-size: 1.2rem;
+      font-family: "Raleway", sans-serif;
+      font-weight: 600;
+    }
+    .bullet-point {
+      animation: 0.3s ease-in-out both fade-in;
+    }
+    @for $i from 1 through 4 {
+      .bullet-point {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * 0.7s;
+        }
+      }
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
 
-#description {
-  font-size: 1.7rem;
-  font-family: "Raleway", sans-serif;
-  margin: 3vh auto;
-}
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-#bullet_point_one,
-#bullet_point_two,
-#bullet_point_three,
-#bullet_point_four {
-  font-size: 1.6rem;
-  margin-left: 10rem;
-}
-
-.hide-btn {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.slide-form-btn {
-  position: absolute;
-  bottom: 10%;
-  right: 5%;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  border: none !important;
-  color: $wh;
-  text-transform: uppercase;
-  background: $gradient;
-  transition: $transition;
-  &:hover {
-    box-shadow: $btn-shadow;
+    .hide-btn {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .slide-form-btn {
+      position: absolute;
+      bottom: 10%;
+      right: 5%;
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      border: none !important;
+      color: $wh;
+      text-transform: uppercase;
+      background: $gradient;
+      transition: $transition;
+      &:hover {
+        box-shadow: $btn-shadow;
+      }
+    }
   }
 }
 
@@ -91,7 +120,7 @@
   height: auto;
   width: 50vw;
   border: 10px solid $wh;
-  top: 15%;
+  top: 20%;
   left: 20%;
   box-shadow: $light-shadow;
 }
@@ -104,4 +133,31 @@
   top: 35%;
   left: 40%;
   z-index: -1;
+  animation: 1s slide;
+  @keyframes slide {
+    from {
+      transform: translateX(10vw);
+    }
+    to {
+      transform: translate(0);
+    }
+  }
+}
+
+.across {
+  height: 2px;
+  width: 95vw;
+  background: $bl;
+  animation: 3.8s linear expands;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  @keyframes expands {
+    from {
+      width: 0;
+    }
+    to {
+      width: 95vw;
+    }
+  }
 }
