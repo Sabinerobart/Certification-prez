@@ -12,7 +12,7 @@ passport.use(
     },
     (email, password, done) => {
       db.query(
-        "SELECT nickname, fullName FROM user WHERE email=?",
+        "SELECT nickname, fullName, password, month, year, is_admin FROM user WHERE email=?",
         [email, password],
         (err, usersRows) => {
           if (!usersRows)
@@ -22,7 +22,6 @@ passport.use(
           if (!user) return done(null, false, { message: "User not found!" });
           bcrypt.compare(password, user.password, (errBcrypt, result) => {
             if (errBcrypt) return done(errBcrypt);
-            console.log(result);
             if (!result)
               return done(null, false, { message: "Incorrect password!" });
             return done(null, user);
