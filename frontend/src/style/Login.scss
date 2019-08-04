@@ -16,6 +16,7 @@
     width: 350px;
     color: $wh;
     animation: 1s slide-up;
+    z-index: 2;
     .card-header {
       background: $gradient;
       text-align: center;
@@ -32,7 +33,7 @@
         height: 3rem;
         position: absolute;
         left: 50%;
-        top: 30%;
+        top: 28%;
         transform: translate(-50%, 0);
         transition: $transition;
       }
@@ -42,10 +43,10 @@
         top: none;
         left: none;
         right: none;
-        bottom: 3px solid rgba($main-color, 0.5);
+        bottom: 3px solid rgba($bl, 0.2);
         radius: 0;
       }
-      margin: 0.5rem 0;
+      margin: 0.5rem 3rem;
       &::placeholder {
         color: $sec-color;
         font-family: "Raleway", sans-serif;
@@ -55,12 +56,11 @@
       }
     }
     button {
-      margin-top: 1rem;
+      margin-top: 2rem;
       border-radius: 0;
       border: none;
       background: $gradient;
-      &:hover {
-        box-shadow: $btn-shadow;
+      &:not(.disabled):hover {
         background: $footer-gradient;
       }
     }
@@ -109,4 +109,12 @@
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.colored {
+  width: 50vw;
+  height: 100vh;
+  background: rgba($bl, 0.3);
+  position: absolute;
+  right: 0;
 }
