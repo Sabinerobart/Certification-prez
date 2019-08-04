@@ -19,9 +19,7 @@ const App = ({ user }) => {
         <Route path="/inscription" component={Signup} />
         <Route path="/:id" component={Slide} />
       </Switch>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </React.Fragment>
   );
 };
