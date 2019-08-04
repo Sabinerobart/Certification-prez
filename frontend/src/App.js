@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Slide from "./pages/Slide";
+import Signup from "./components/Signup";
 import { connect } from "react-redux";
 
 const App = ({ user }) => {
@@ -15,6 +16,7 @@ const App = ({ user }) => {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
+        <Route path="/inscription" component={Signup} />
         <Route path="/:id" component={Slide} />
       </Switch>
       <footer>
@@ -26,7 +28,7 @@ const App = ({ user }) => {
 
 const mapStateToProps = state => {
   return {
-    user: state.loginReducer
+    user: state.loginReducer.user
   };
 };
 
