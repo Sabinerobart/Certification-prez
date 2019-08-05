@@ -70,17 +70,23 @@ class Menu extends React.Component {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/introduction" onClick={() => this.toggleNavbar()}>
+              <Link
+                to="/contenu/introduction"
+                onClick={() => this.toggleNavbar()}
+              >
                 3 | Introduction
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/contenu" onClick={() => this.toggleNavbar()}>
+              <Link to="/contenu/contenu" onClick={() => this.toggleNavbar()}>
                 4 | Content
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/conclusion" onClick={() => this.toggleNavbar()}>
+              <Link
+                to="/contenu/conclusion"
+                onClick={() => this.toggleNavbar()}
+              >
                 5 | Conclusion
               </Link>
             </NavItem>
