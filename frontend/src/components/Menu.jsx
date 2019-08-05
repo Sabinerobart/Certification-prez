@@ -70,7 +70,7 @@ class Menu extends React.Component {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/intro" onClick={() => this.toggleNavbar()}>
+              <Link to="/introduction" onClick={() => this.toggleNavbar()}>
                 3 | Introduction
               </Link>
             </NavItem>

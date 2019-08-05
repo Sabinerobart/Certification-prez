@@ -15,6 +15,7 @@ import axios from "axios";
 import { loggedInUserActions } from "../redux/actions";
 import { connect } from "react-redux";
 import { backend } from "../conf.js";
+import { ChevronRight } from "react-feather";
 
 class Login extends Component {
   constructor(props) {
@@ -100,10 +101,10 @@ class Login extends Component {
               </FormGroup>
               <Button
                 type="submit"
-                className="col-9 offset-3 p-3"
+                className="col-2 offset-10"
                 disabled={!this.validateForm()}
               >
-                Send
+                <ChevronRight height="55px" size="30px" />
               </Button>
             </Form>
           </CardBody>
