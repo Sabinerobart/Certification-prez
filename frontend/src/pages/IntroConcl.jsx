@@ -88,7 +88,15 @@ class IntroConcl extends Component {
             disabled={user ? (profile.is_admin ? "" : disabled) : disabled}
           />
         </Col>
-        <Col md="6" className="intro-concl_description center bg-dark px-5" />
+        <Col
+          md="6"
+          className="intro-concl_panel center px-5"
+          style={{
+            backgroundColor: "#0082c380",
+            backgroundImage: `url(${this.state.img})`,
+            backgroundSize: "cover"
+          }}
+        />
         <FormGroup>
           <p
             style={{
@@ -97,7 +105,8 @@ class IntroConcl extends Component {
               fontSize: "2rem",
               textAlign: "center",
               padding: "3vh",
-              background: "#f5f5f5"
+              background: "#0082c3d7",
+              color: "#fff"
             }}
           >
             {this.state.page_title}
