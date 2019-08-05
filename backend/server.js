@@ -14,7 +14,7 @@ const passport = require("passport");
 app.use(passport.initialize());
 app.use("/auth", require("./auth"));
 
-// Slides
+// SLIDES
 
 app.get("/:category", (req, res) => {
   let category = req.params.category;
@@ -38,7 +38,7 @@ app.get("/:category", (req, res) => {
   );
 });
 
-// Update Slides
+// UPDATE SLIDES
 
 app.put("/:category", (req, res) => {
   const body = req.body;
@@ -57,6 +57,45 @@ app.put("/:category", (req, res) => {
         return res
           .status(500)
           .send(`error when updating the ${category} slides`);
+      }
+      res.status(200).send(rows);
+    }
+  );
+});
+
+// INTRO-CONCL
+
+app.get("/contenu/:contentCategory", (req, res) => {
+  let contentCategory = req.params.contentCategory;
+  db.query(
+    `SELECT page_title, logo, title, description, bullet_point_one, bullet_point_two, bullet_point_three, bullet_point_four, img FROM slide WHERE category="${contentCategory}"`,
+    (err, rows) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("error when getting user route");
+      }
+      if (!rows) {
+        return res.status(404).send("No user found");
+      }
+      res.status(200).send(rows[0]);
+    }
+  );
+});
+
+// UPDATE INTRO-CONCL
+
+app.put("/contenu/:contentCategory", (req, res) => {
+  const body = req.body;
+  let contentCategory = req.params.contentCategory;
+  db.query(
+    `UPDATE slide SET ? WHERE category="${contentCategory}"`,
+    [body],
+    (err, rows) => {
+      if (err) {
+        console.log(err);
+        return res
+          .status(500)
+          .send(`error when updating the ${contentCategory} slides`);
       }
       res.status(200).send(rows);
     }
