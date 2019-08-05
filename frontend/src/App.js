@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 const App = ({ user }) => {
   return (
     <React.Fragment>
+      <div className="app-border" />
       <Menu />
       <Switch>
         <Route exact path="/" component={Homepage} />

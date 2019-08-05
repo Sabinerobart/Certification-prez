@@ -1,5 +1,27 @@
 @import "./index.scss";
 
+// ON WHOLE APP
+
+.app-border {
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: $footer-gradient;
+  z-index: 10001;
+  animation: 1s footer-animation;
+  @keyframes footer-animation {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}
+
+// NAV
+
 .navbar {
   min-height: 100vh;
   display: flex;
