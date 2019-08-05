@@ -24,7 +24,7 @@ class Slide extends Component {
   }
 
   componentDidMount() {
-    const category = this.props.match.params.id;
+    const category = this.props.match.params.category;
     axios.get(`${backend}/${category}`).then(({ data }) => {
       this.setState({
         title: data.title,
