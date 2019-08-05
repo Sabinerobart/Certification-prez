@@ -13,7 +13,7 @@
     border: none;
     border-radius: 0;
     box-shadow: $btn-shadow;
-    width: 350px;
+    width: 550px;
     color: $wh;
     animation: 1s slide-up;
     z-index: 2;
@@ -30,10 +30,10 @@
         font-size: 1.7rem;
       }
       img {
-        height: 3rem;
+        height: 3.5rem;
         position: absolute;
         left: 50%;
-        top: 28%;
+        top: 24%;
         transform: translate(-50%, 0);
         transition: $transition;
       }
@@ -46,7 +46,7 @@
         bottom: 3px solid rgba($bl, 0.2);
         radius: 0;
       }
-      margin: 0.5rem 3rem;
+      margin: 1.3rem 5rem;
       &::placeholder {
         color: $sec-color;
         font-family: "Raleway", sans-serif;
@@ -63,9 +63,15 @@
       &:not(.disabled):hover {
         background: $footer-gradient;
       }
+      svg {
+        transition: $transition;
+      }
+      &:not(.disabled):hover svg {
+        margin-left: 0.5rem;
+      }
     }
     &:hover img {
-      height: 3.5rem;
+      height: 4rem;
     }
   }
 }
@@ -85,7 +91,7 @@
   z-index: -1;
   left: 51%;
   right: 51%;
-  bottom: 7px;
+  bottom: 20px;
   background: $main-color;
   height: 4px;
   transition-property: left, right;
@@ -96,8 +102,8 @@
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before,
 .hvr-underline-from-center:focus-within:before {
-  left: 0;
-  right: 0;
+  left: 2rem;
+  right: 3rem;
 }
 
 @keyframes slide-up {
@@ -114,7 +120,8 @@
 .colored {
   width: 50vw;
   height: 100vh;
-  background: rgba($bl, 0.3);
+  background: rgba($bl, 0.2);
   position: absolute;
   right: 0;
+  mix-blend-mode: color-burn;
 }
