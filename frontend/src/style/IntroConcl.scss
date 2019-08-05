@@ -44,20 +44,21 @@
     transform: translate(-50%, -50%);
     font-family: "Raleway", sans-serif;
     box-shadow: $btn-shadow;
-    animation: 0.8s intro-slide-up;
-    @keyframes intro-slide-up {
+    animation: 1s intro-slide-right;
+    @keyframes intro-slide-right {
       from {
-        top: 150%;
+        top: -100vh;
       }
       30% {
-        top: 150%;
+        top: -100vh;
+        opacity: 0;
       }
       to {
-        top: 60%;
+        top: 58%;
       }
     }
     textarea {
-      height: 45vh;
+      height: 40vh;
       border-radius: 0;
       padding: 5vh 10vh;
       font-size: calc(1rem + 0.3vw);
@@ -69,5 +70,8 @@
         right: none;
       }
     }
+  }
+  .intro-concl_panel {
+    opacity: 0.1;
   }
 }
