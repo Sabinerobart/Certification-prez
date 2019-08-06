@@ -44,7 +44,7 @@ class Login extends Component {
       .then(({ data }) => {
         const { dispatch } = this.props;
         dispatch(loggedInUserActions(data));
-        history.push("/");
+        history.goBack();
       })
       .catch(err => {
         console.log(err);
