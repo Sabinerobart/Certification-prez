@@ -5,9 +5,15 @@ footer {
   height: 3.6rem;
   z-index: 10001;
   color: $wh;
-  font-family: "RalewayBold", serif;
+  font-family: "Raleway", sans-serif;
   position: absolute;
   bottom: 0;
+  strong {
+    font-family: "RalewayBold", sans-serif;
+  }
+  small {
+    font-size: 0.8rem;
+  }
   .line {
     margin: 8px 11px;
     background: $wh;
