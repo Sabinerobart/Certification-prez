@@ -14,7 +14,7 @@ class Slide extends Component {
       description: "",
       bullet_point_one: "1st bullet point",
       bullet_point_two: "2nd bullet point",
-      bullet_point_three: "2rd bullet point",
+      bullet_point_three: "3rd bullet point",
       bullet_point_four: "",
       img: "",
       page_title: "",
@@ -49,7 +49,7 @@ class Slide extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const category = this.props.match.params.id;
+    const category = this.props.match.params.category;
     axios
       .put(`${backend}/${category}`, {
         title: this.state.title,
@@ -219,11 +219,14 @@ class Slide extends Component {
               </Row>
             </Col>
             <button
-              style={{ border: "1px solid black" }}
-              block
-              className={user && user.is_admin ? "slide-form-btn" : "hide-btn"}
+              className={
+                user
+                  ? profile.is_admin
+                    ? "slide-form-btn"
+                    : "hide-btn"
+                  : "hide-btn"
+              }
               type="submit"
-              tabIndex="4"
               // disabled={!this.validateForm()}
             >
               Send
