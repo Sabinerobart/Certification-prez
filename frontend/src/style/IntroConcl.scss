@@ -1,0 +1,80 @@
+@import "./index.scss";
+
+.intro-concl_page {
+  overflow: hidden;
+  .col-md-6 {
+    &:first-of-type {
+      animation: 0.5s slide-up ease-out;
+      @keyframes slide-up {
+        from {
+          transform: translateY(-90vh);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      animation: 0.5s slide-down ease-out;
+      @keyframes slide-down {
+        from {
+          transform: translateY(90vh);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  textarea:focus {
+    box-shadow: none;
+  }
+  .intro-concl_title textarea {
+    padding: 2vh 0 0 10vh;
+    height: 100vh;
+    font-size: 15rem;
+    line-height: 1;
+    font-family: "RalewayBlack", sans-serif;
+    color: rgba($bl, 0.08);
+    background: none;
+    border: none;
+  }
+  .form-group {
+    position: absolute;
+    width: 40vw;
+    top: 58%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    font-family: "Raleway", sans-serif;
+    box-shadow: $btn-shadow;
+    animation: 1s intro-slide-right;
+    @keyframes intro-slide-right {
+      from {
+        top: -100vh;
+      }
+      30% {
+        top: -100vh;
+        opacity: 0;
+      }
+      to {
+        top: 58%;
+      }
+    }
+    textarea {
+      height: 40vh;
+      border-radius: 0;
+      padding: 5vh 10vh;
+      font-size: calc(1rem + 0.3vw);
+      background: $wh;
+      border: {
+        top: 2px solid $bl;
+        bottom: none;
+        left: none;
+        right: none;
+      }
+    }
+  }
+  .intro-concl_panel {
+    opacity: 0.1;
+  }
+}

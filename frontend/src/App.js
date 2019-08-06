@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Slide from "./pages/Slide";
 import Signup from "./components/Signup";
 import { connect } from "react-redux";
+import IntroConcl from "./pages/IntroConcl";
 
 const App = ({ user }) => {
   return (
@@ -18,7 +19,8 @@ const App = ({ user }) => {
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
         <Route path="/inscription" component={Signup} />
-        <Route path="/:id" component={Slide} />
+        <Route exact path="/:category" component={Slide} />
+        <Route path="/contenu/:contentCategory" component={IntroConcl} />
       </Switch>
       <Footer />
     </React.Fragment>

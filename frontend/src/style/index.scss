@@ -14,7 +14,7 @@ code {
 
 // ------------------------------ COLORS
 
-$wh: #f7f7f7;
+$wh: #f9f9f9;
 $bl: #222;
 $main-color: #0082c3;
 $sec-color: #b3b3b3;
@@ -52,6 +52,11 @@ $img-gradient: linear-gradient(
   src: url("/fonts/Raleway-Bold.ttf");
 }
 
+@font-face {
+  font-family: "RalewayBlack";
+  src: url("/fonts/Raleway-Black.ttf");
+}
+
 // ------------------------------ HELPERS
 
 .wip {
@@ -74,4 +79,21 @@ $btn-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
   height: 5px;
   background: $gradient;
   margin: 2rem 0 2rem 0;
+}
+
+.slide-form-btn {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: none !important;
+  color: $wh;
+  text-transform: uppercase;
+  background: $gradient;
+  transition: $transition;
+  &:hover {
+    box-shadow: $btn-shadow;
+  }
 }
