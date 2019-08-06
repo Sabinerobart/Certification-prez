@@ -23,22 +23,26 @@ class Slide extends Component {
     };
   }
 
-  componentDidMount() {
+  getData = async () => {
     const category = this.props.match.params.category;
-    axios.get(`${backend}/${category}`).then(({ data }) => {
-      this.setState({
-        title: data.title,
-        description: data.description,
-        bullet_point_one: data.bullet_point_one,
-        bullet_point_two: data.bullet_point_two,
-        bullet_point_three: data.bullet_point_three,
-        bullet_point_four: data.bullet_point_four,
-        img: data.img,
-        page_title: data.page_title,
-        logo: data.logo,
-        loading: false
-      });
+    let res = await axios.get(`${backend}/${category}`);
+    let data = res.data;
+    this.setState({
+      title: data.title,
+      description: data.description,
+      bullet_point_one: data.bullet_point_one,
+      bullet_point_two: data.bullet_point_two,
+      bullet_point_three: data.bullet_point_three,
+      bullet_point_four: data.bullet_point_four,
+      img: data.img,
+      page_title: data.page_title,
+      logo: data.logo,
+      loading: false
     });
+  };
+
+  componentDidMount() {
+    this.getData();
   }
 
   handleChange(event) {
