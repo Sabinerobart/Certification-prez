@@ -26,6 +26,9 @@
       }
     }
   }
+  textarea:focus {
+    box-shadow: none;
+  }
   .intro-concl_title textarea {
     padding: 2vh 0 0 10vh;
     height: 100vh;
