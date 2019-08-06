@@ -102,6 +102,25 @@ app.put("/contenu/:contentCategory", (req, res) => {
   );
 });
 
+// GET CONTENT
+
+app.get("/content/page/:id", (req, res) => {
+  let contentId = req.params.id;
+  db.query(
+    `SELECT page_title FROM slide WHERE id_content=${contentId}`,
+    (err, rows) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send("error when getting user route");
+      }
+      if (!rows) {
+        return res.status(404).send("No user found");
+      }
+      res.status(200).send(rows[0]);
+    }
+  );
+});
+
 app.listen(portNumber, () => {
   console.log(`API root available at: http://localhost:${portNumber}/`);
 });
