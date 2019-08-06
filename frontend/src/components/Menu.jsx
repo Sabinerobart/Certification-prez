@@ -28,6 +28,7 @@ class Menu extends React.Component {
 
   render() {
     const { user } = this.props;
+
     const userLink = (
       <Link to="/login">
         <User color="#222" size="30" />
@@ -78,7 +79,11 @@ class Menu extends React.Component {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/contenu/contenu" onClick={() => this.toggleNavbar()}>
+              <Link
+                // to={`/contenu/page/${contentId}`}
+                to={`/contenu/page/1`}
+                onClick={() => this.toggleNavbar()}
+              >
                 4 | Content
               </Link>
             </NavItem>
