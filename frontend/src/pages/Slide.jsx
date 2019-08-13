@@ -5,6 +5,7 @@ import { Row, Col, Form, FormGroup, Input } from "reactstrap";
 import { backend } from "../conf.js";
 import { connect } from "react-redux";
 import Loader from "../components/Loader";
+import Button from "../components/Button";
 
 class Slide extends Component {
   constructor(props) {
@@ -64,10 +65,6 @@ class Slide extends Component {
         console.log(`Nope! ${err}`);
       });
   }
-
-  // validateForm() {
-  //   return this.state.title.length > 0;
-  // }
 
   render() {
     const { user } = this.props;
@@ -218,19 +215,7 @@ class Slide extends Component {
                 ) : null}
               </Row>
             </Col>
-            <button
-              className={
-                user
-                  ? profile.is_admin
-                    ? "slide-form-btn"
-                    : "hide-btn"
-                  : "hide-btn"
-              }
-              type="submit"
-              // disabled={!this.validateForm()}
-            >
-              Send
-            </button>
+            <Button />
           </Form>
           <div className="across" />
         </div>

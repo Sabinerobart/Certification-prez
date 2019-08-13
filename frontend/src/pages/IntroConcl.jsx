@@ -4,6 +4,7 @@ import { Col, Form, FormGroup, Input } from "reactstrap";
 import axios from "axios";
 import { backend } from "../conf";
 import { connect } from "react-redux";
+import Button from "../components/Button";
 
 class IntroConcl extends Component {
   constructor(props) {
@@ -122,19 +123,7 @@ class IntroConcl extends Component {
             disabled={user ? (profile.is_admin ? "" : disabled) : disabled}
           />
         </FormGroup>
-        <button
-          className={
-            user
-              ? profile.is_admin
-                ? "slide-form-btn"
-                : "hide-btn"
-              : "hide-btn"
-          }
-          type="submit"
-          // disabled={!this.validateForm()}
-        >
-          Send
-        </button>
+        <Button />
       </Form>
     );
   }
