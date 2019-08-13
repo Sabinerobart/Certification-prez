@@ -66,10 +66,6 @@ class Slide extends Component {
       });
   }
 
-  // validateForm() {
-  //   return this.state.title.length > 0;
-  // }
-
   render() {
     const { user } = this.props;
     const profile = user && user.user;

@@ -10,7 +10,6 @@ const Button = ({ user }) => {
         user ? (profile.is_admin ? "slide-form-btn" : "hide-btn") : "hide-btn"
       }
       type="submit"
-      // disabled={!this.validateForm()}
     >
       Send
     </button>
