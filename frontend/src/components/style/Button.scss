@@ -1,0 +1,23 @@
+@import "../../style/index.scss";
+
+.hide-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide-form-btn {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: none !important;
+  color: $wh;
+  text-transform: uppercase;
+  background: $gradient;
+  transition: $transition;
+  &:hover {
+    box-shadow: $btn-shadow;
+  }
+}
